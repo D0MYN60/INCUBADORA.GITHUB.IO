@@ -1,0 +1,662 @@
+jQuery(document).ready(function () {
+    
+    $('#ads_footer-close').click( function() {
+	$('#ads_footer').hide();
+    });
+    /**
+     * slide reader
+     */
+    if ($('.slide-detail').length > 0) {
+	var reader = new slide_reader();
+	reader.initital();
+
+	$("#btn-next").click(function () {
+	    reader.next_page();
+	    ga('send', 'event', 'document', 'click', 'slide-next');
+	});
+	$("#btn-prev").click(function () {
+	    reader.prev_page();
+	    ga('send', 'event', 'document', 'click', 'slide-prev');
+	});
+	$("#btn-first").click(function () {
+	    reader.first_page();
+	    ga('send', 'event', 'document', 'click', 'slide-first');
+	});
+	$("#btn-last").click(function () {
+	    reader.last_page();
+	    ga('send', 'event', 'document', 'click', 'slide-last');
+	});
+	$('#slide-paging').change(function () {
+	    reader.change_page($(this).val());
+	    ga('send', 'event', 'document', 'click', 'slide-input');
+	});
+
+	$('#btn-slide-fullscreen').click(function () {
+	    reader.fullscreen();
+	    ga('send', 'event', 'document', 'click', 'slide full');
+	});
+
+	$("#btn-slide-exitfull").click(function () {
+	    reader.exitscreen();
+	    ga('send', 'event', 'document', 'click', 'slide exit full');
+	});
+
+	$(document).bind('keydown', function (e) {
+	    if (e.keyCode === 37) {
+		reader.prev_page();
+		ga('send', 'event', 'document', 'click', 'slide-keyboard-prev');
+	    }
+	    if (e.keyCode === 39) {
+		reader.next_page();
+		ga('send', 'event', 'document', 'click', 'slide-keyboard-next');
+	    }
+	});
+	$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', reader.event_fullscreen);
+    }
+
+
+    /**
+     * document reader
+     */
+    if ($('.document-detail').length > 0) {
+	var reader = new doc_reader();
+	reader.initital();
+
+	$('#btn-document-fullscreen').click(function () {
+	    reader.fullscreen();
+	});
+
+	$("#btn-document-exitfull").click(function () {
+	    reader.exitscreen();
+	});
+
+	$("input#document-paging").keydown(function (e) {
+	    if (e.keyCode == 13) {
+		reader.page_go($(this).val());
+	    }
+	});
+
+	$("input#document-paging").bind('keyup mouseup', function () {
+	    reader.page_go($(this).val());
+	});
+
+	$("#btn-prev").click(function () {
+	    reader.prev();
+	});
+	$("#btn-next").click(function () {
+	    reader.next();
+	});
+
+	$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', reader.event_fullscreen);
+
+	$(document).bind('keydown', function (e) {
+	    if (e.keyCode === 37) {
+		reader.prev_page();
+	    }
+	    if (e.keyCode === 39) {
+		reader.next_page();
+	    }
+	});
+    }
+
+
+    if ($('#slide-reader').length > 0 || $('#document-reader').length > 0) {
+	$(".document-report").fancybox({
+	    maxWidth: 800,
+	    minWidth: 200,
+	    maxHeight: 700,
+	    minHeight: 330,
+	    fitToView: false,
+	    width: '70%',
+	    height: '70%',
+	    autoSize: false,
+	    closeClick: false,
+	    openEffect: 'none',
+	    closeEffect: 'none'
+	});
+
+    }
+    $("#login_form").submit(function () {
+	ajax_login('blocks');
+	return false;
+    });
+
+
+    // form search
+    $(".top_search_submit").click(function () {
+	$("#f_search").submit();
+    });
+
+    $(".photoresize").imgLiquid();
+
+
+    $('#logo').click(function () {
+	ga('send', 'event', 'navigation', 'click', 'header-logo');
+    });
+    //$('#embed_model').modal('show');
+});
+
+function doc_reader() {
+    this.number = 0;
+    this.number_pages;
+    this.height_total = 500;
+}
+doc_reader.prototype = {
+    initital: function () {
+	this.number_pages = $("#document-pages").html() - 1;
+	//this.load_page(this.number);
+    },
+    page_go: function (page) {
+	pdf2htmlEX.defaultViewer.scroll_to(page - 1, [0, 0]);
+    },
+    next: function () {
+	this.number = parseInt($("#document-paging").val()) - 1;
+	pdf2htmlEX.defaultViewer.scroll_to(this.number + 1, [0, 0]);
+    },
+    prev: function () {
+	this.number = parseInt($("#document-paging").val()) - 1;
+	pdf2htmlEX.defaultViewer.scroll_to(this.number - 1, [0, 0]);
+    },
+    fullscreen: function () {
+	this.height_total = 0;
+	var i = document.getElementById('document-reader');
+	// go full-screen
+	if (i.requestFullscreen) {
+	    i.requestFullscreen();
+	} else if (i.webkitRequestFullscreen) {
+	    i.webkitRequestFullscreen();
+	} else if (i.mozRequestFullScreen) {
+	    i.mozRequestFullScreen();
+	} else if (i.msRequestFullscreen) {
+	    i.msRequestFullscreen();
+	}
+//		var reader_height = 0;
+//		$( "div.pf" ).each(function( index ) {
+//			reader_height += $(this).height();
+//		});
+	pdf2htmlEX.defaultViewer.fit_width();
+    },
+    exitscreen: function () {
+	if (document.exitFullscreen) {
+	    document.exitFullscreen();
+	    this.exit_fullscreen();
+	} else if (document.webkitExitFullscreen) {
+	    document.webkitExitFullscreen();
+	    this.exit_fullscreen();
+	} else if (document.mozCancelFullScreen) {
+	    document.mozCancelFullScreen();
+	    this.exit_fullscreen();
+	} else if (document.msExitFullscreen) {
+	    document.msExitFullscreen();
+	    this.exit_fullscreen();
+	}
+    },
+    event_fullscreen: function () {
+	if (isFullscreen()) {
+	    $("#btn-document-fullscreen").addClass('hidden');
+	    $("#btn-document-exitfull").removeClass('hidden');
+	    pdf2htmlEX.defaultViewer.fit_width();
+	} else {
+	    $("#btn-document-fullscreen").removeClass('hidden');
+	    $("#btn-document-exitfull").addClass('hidden');
+	    pdf2htmlEX.defaultViewer.fit_width3();
+	    pdf2htmlEX.defaultViewer.fit_width();
+	}
+
+    },
+    exit_fullscreen: function () {
+	$("#btn-document-fullscreen").removeClass('hidden');
+	$("#btn-document-exitfull").addClass('hidden');
+	pdf2htmlEX.defaultViewer.fit_width3();
+	pdf2htmlEX.defaultViewer.fit_width();
+    }
+}
+
+/**
+ * class slide reader
+ * 
+ * require
+ * - jquery
+ */
+function slide_reader() {
+    this.number = 0;
+    this.reader_height = 0;
+    this.number_pages;
+}
+slide_reader.prototype = {
+    initital: function () {
+	this.number_pages = $("#slide-pages").html() - 1;
+	this.load_page(this.number);
+    },
+    initial_height: function () {
+
+	if (this.reader_height === 0) {
+	    this.reader_height = $("#slide-" + this.number).height();
+	    $("#page-container").css('min-height', $("#slide-" + this.number).height());
+	}
+    },
+    next_page: function () {
+	this.initial_height();
+	if ($("#slide-" + (this.number + 1)).length < 1) {
+	    return false;
+	}
+	this.number += 1;
+	this.load_page(this.number);
+    },
+    prev_page: function () {
+	this.initial_height();
+	if ($("#slide-" + (this.number - 1)).length < 1) {
+	    return false;
+	}
+	this.number -= 1;
+	this.load_page(this.number);
+    },
+    first_page: function () {
+	if (this.number == 0) {
+	    return false;
+	}
+	this.initial_height();
+
+	if ($("#slide-0").length < 1) {
+	    return false;
+	}
+	this.number = 0;
+	this.load_page(this.number);
+    },
+    last_page: function () {
+	if (this.number == this.number_pages) {
+	    return false;
+	}
+	this.initial_height();
+	if ($("#slide-" + this.number_pages).length < 1) {
+	    return false;
+	}
+	this.number = this.number_pages;
+	this.load_page(this.number);
+    },
+    change_page: function ($number) {
+	$number -= 1;
+	if (this.number == $number) {
+	    return false;
+	}
+	if ($number < 0) {
+	    $('#slide-paging').val(1);
+	    return false;
+	}
+	if ($number > this.number_pages) {
+	    $('#slide-paging').val(this.number_pages + 1);
+	    return false;
+	}
+	this.initial_height();
+	if ($("#slide-" + $number).length < 1) {
+	    return false;
+	}
+	this.number = $number;
+	this.load_page(this.number);
+    },
+    load_page: function ($number) {
+
+	// show slide current
+	this.load_image($number);
+	$("#slide-" + $number).removeClass('hidden');
+
+	// hidden slide
+	$("#page-container .slide-view").each(function (index) {
+	    if ($(this).attr('data-index') != $number) {
+		if (!$(this).hasClass('hidden')) {
+		    $(this).addClass('hidden');
+
+		    var $current_image = $(this).find('.slide-image');
+		    $tem_src = $current_image.attr('data-src')
+		    $current_image.attr('data-src', $current_image.attr('src'));
+		    $current_image.attr('src', $tem_src);
+		    $(this).removeClass('loaded');
+		}
+
+		if ($(this).hasClass('loaded')) {
+		    var $current_image = $(this).find('.slide-image');
+		    $tem_src = $current_image.attr('data-src')
+		    $current_image.attr('data-src', $current_image.attr('src'));
+		    $current_image.attr('src', $tem_src);
+		    $(this).removeClass('loaded');
+		}
+	    }
+	});
+
+	this.page($number);
+	this.load_preview();
+    },
+    load_preview: function () {
+	if (this.number > 0) {
+	    this.load_image(this.number - 1);
+	}
+	if (this.number < this.number_pages) {
+	    this.load_image(this.number + 1);
+	}
+    },
+    load_image: function ($number) {
+	// show slide current
+	var $current_page = $("#slide-" + $number);
+	if ($current_page.length > 0) {
+	    if (!$current_page.hasClass('loaded')) {
+		var $current_image = $current_page.find('.slide-image');
+		$tem_src = $current_image.attr('src')
+		$current_image.attr('src', $current_image.attr('data-src'));
+		$current_image.attr('data-src', $tem_src);
+		$current_page.addClass('loaded');
+	    }
+	}
+    },
+    page: function (number) {
+	$('#slide-paging').val(number + 1);
+    },
+    fullscreen: function () {
+	var i = document.getElementById('slide-reader');
+	// go full-screen
+	if (i.requestFullscreen) {
+	    i.requestFullscreen();
+	} else if (i.webkitRequestFullscreen) {
+	    i.webkitRequestFullscreen();
+	} else if (i.mozRequestFullScreen) {
+	    i.mozRequestFullScreen();
+	} else if (i.msRequestFullscreen) {
+	    i.msRequestFullscreen();
+	}
+	$("#btn-slide-fullscreen").addClass('hidden');
+	$("#btn-slide-exitfull").removeClass('hidden');
+    },
+    exitscreen: function () {
+	if (document.exitFullscreen) {
+	    document.exitFullscreen();
+	} else if (document.webkitExitFullscreen) {
+	    document.webkitExitFullscreen();
+	} else if (document.mozCancelFullScreen) {
+	    document.mozCancelFullScreen();
+	} else if (document.msExitFullscreen) {
+	    document.msExitFullscreen();
+	}
+	$("#btn-slide-fullscreen").removeClass('hidden');
+	$("#btn-slide-exitfull").addClass('hidden');
+    },
+    event_fullscreen: function () {
+	if (isFullscreen()) {
+	    $("#btn-slide-fullscreen").addClass('hidden');
+	    $("#btn-slide-exitfull").removeClass('hidden');
+	} else {
+	    $("#btn-slide-fullscreen").removeClass('hidden');
+	    $("#btn-slide-exitfull").addClass('hidden');
+	}
+    }
+}
+
+function isFullscreen() {
+    if ((window.fullScreen) || (window.innerWidth == screen.width && window.innerHeight == screen.height)) {
+	return false;
+    }
+    return true;
+}
+
+/**
+ * Log views
+ */
+function get_logs(url, urllink) {
+    $.post("/logs/document", {url: url, link1: urllink})
+	    .done(function (data) {
+	    });
+}
+function get_logs_embed(url, embed) {
+    $.post("/logs/embed", {url: url, embed: embed})
+	    .done(function (data) {
+	    });
+}
+function get_logs_like(url) {
+    $.post("/logs/like", {url: url})
+	    .done(function (data) {
+	    });
+}
+
+/**
+ * Ajax đăng ký
+ * 
+ */
+function ajax_login(login_type) {
+    /*Xử lý layout*/
+    login_layout_proccess();
+    var register_username = $("#login_user_name").val();
+    var register_password = $("#login_password").val();
+    var recaptcha = $("#g-recaptcha-response").val();
+    
+    /**
+     * Ajax 
+     */
+    request = $.ajax({
+	type: "POST",
+	dataType: 'json',
+	url: "/login/ajax_login?router=" + Math.random() * 1000,
+	cache: false,
+	data: {
+	    username: register_username,
+	    password: register_password,
+	    "g-recaptcha-response": recaptcha
+	}
+    });
+
+    /**
+     * Ajax ouput json 
+     */
+    request.done(function (msg) {
+
+	if (msg.check == 200) {
+	    login_layout_success(login_type);
+
+	} else {
+
+	    $("#login_error").html(msg.messenge);
+	    login_layout_error();
+	}
+    });
+
+    /**
+     * Ajax Error
+     *  
+     */
+    request.fail(function (jqXHR, textStatus) {
+	$("#login_error").html('System error. Please try again !...');
+	login_layout_error();
+    });
+}
+
+function login_layout_proccess() {
+    $("#login_error").hide();
+    $("#login_form_input").hide();
+    $("#login_loading").show();
+}
+
+function login_layout_error() {
+    $("#login_loading").hide();
+    $("#login_error").show();
+    $("#login_form_input").show();
+}
+
+function login_layout_success(login_type) {
+    $("#login_loading").hide();
+    $("#login_success").show();
+
+    if (login_type == 'blocks') {
+	login_success_timeout();
+	setTimeout(login_refesh, 3000);
+    } else {
+	login_success_timeout();
+	setTimeout(login_back_url, 3000);
+    }
+}
+
+function login_success_timeout() {
+    jstimeout = $(".js-timeout").html() - 1;
+    $(".js-timeout").html(jstimeout);
+    if (jstimeout > 0) {
+	setTimeout(login_success_timeout, 1000);
+    }
+}
+
+function login_back_url() {
+    this.window.location.href = $("#back_url").val();
+}
+function login_refesh() {
+    this.window.location.reload();
+}
+
+/**
+ * Ajax register
+ * 
+ */
+function ajax_register() {
+    /*Xử lý layout*/
+    register_layout_proccess();
+    var register_username = $("#username").val();
+    var register_email = $("#email").val();
+    var register_password = $("#password").val();
+    var register_rules = $("#rules").val();
+    var recaptcha = $("#g-recaptcha-response").val();
+    
+    /**
+     * Ajax 
+     */
+    request = $.ajax({
+	type: "POST",
+	dataType: 'json',
+	url: "/register/account_add?router=" + Math.random() * 1000,
+	cache: false,
+	data: {
+	    username: register_username,
+	    email: register_email,
+	    password: register_password,
+	    rules: register_rules,
+	    "g-recaptcha-response": recaptcha
+	}
+    });
+
+    /**
+     * Ajax ouput json 
+     */
+    request.done(function (msg) {
+
+	if (msg.check === 200) {
+	    register_layout_success();
+
+	} else {
+
+	    $("#register_error").html(msg.messenge);
+	    register_layout_error();
+	}
+    });
+
+    /**
+     * Ajax Error
+     *  
+     */
+    request.fail(function (jqXHR, textStatus) {
+	$("#register_error").html('System error. Please try again !...');
+	register_layout_error();
+    });
+}
+
+/**
+ * Layout thông báo đang xử lý ajax
+ * 
+ * @returns {undefined}
+ */
+function register_layout_proccess() {
+    $("#register_error").hide();
+    $("#register_form").hide();
+    $("#register_loading").show();
+}
+
+function register_layout_success() {
+    $("#register_loading").hide();
+    $("#register_success").show();
+
+    register_success_timeout();
+    setTimeout(register_back_url, 5000);
+}
+
+function register_layout_error() {
+    $("#register_loading").hide();
+    $("#register_error").show();
+    $("#register_form").show();
+}
+
+function register_success_timeout() {
+    jstimeout = $(".js-timeout").html() - 1;
+    $(".js-timeout").html(jstimeout);
+    if (jstimeout > 0) {
+	setTimeout(register_success_timeout, 1000);
+    }
+}
+
+function register_back_url() {
+    this.window.location.href = $("#back_url").val();
+}
+/**
+ * Ajax đăng ký
+ * 
+ */
+function ajax_forgetpass() {
+    /*Xử lý layout*/
+    forget_layout_proccess();
+    var register_email = $("#email").val();
+    /**
+     * Ajax 
+     */
+    request = $.ajax({
+	type: "POST",
+	dataType: 'json',
+	url: "/login/ajax_forgetpass?router=" + Math.random() * 1000,
+	cache: false,
+	data: {
+	    email: register_email,
+	}
+    });
+
+    /**
+     * Ajax ouput json 
+     */
+    request.done(function (msg) {
+
+	if (msg.check == 200) {
+	    forget_layout_success();
+
+	} else {
+
+	    $("#login_error").html(msg.messenge);
+	    forget_layout_error();
+	}
+    });
+
+    /**
+     * Ajax Error
+     *  
+     */
+    request.fail(function (jqXHR, textStatus) {
+	$("#login_error").html(lregister_error);
+	forget_layout_error();
+    });
+}
+
+function forget_layout_proccess() {
+    $("#login_error").hide();
+    $("#login_form").hide();
+    $("#login_loading").show();
+}
+
+function forget_layout_error() {
+    $("#login_loading").hide();
+    $("#login_error").show();
+    $("#login_form").show();
+}
+
+function forget_layout_success() {
+    $("#login_loading").hide();
+    $("#login_success").show();
+
+}

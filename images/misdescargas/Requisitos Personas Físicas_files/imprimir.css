@@ -1,0 +1,205 @@
+﻿body.nightandday 
+{	
+	font-size: 12px !important;
+}
+
+.nightandday #s4-bodyContainer
+{
+	margin-top: 0 !important;
+	margin-left: 0 !important;
+	float: none !important;
+	max-width: none !important;
+	min-width: inherit !important;
+}
+
+.nightandday #s4-workspace
+{
+	min-width: inherit !important;
+	margin: auto !important;
+	height: auto !important;
+	width: auto !important;
+	position: relative;
+	
+}
+
+
+.nightandday #s4-encabezado
+{
+	width:auto !important;
+}
+
+
+.nightandday .body-wrapper
+{
+	width: auto;
+	float: none !important;
+}
+
+.nightandday .s4-ca
+{
+	margin-left: 0 !important;
+	width: auto !important;
+}
+
+.nightandday #s4-barra_herramientas
+{
+	display: none !important;
+}
+
+/*.nightandday #s4-firma_busqueda
+{
+	visibility: collapse;
+	display: none !important;
+}*/
+.nightandday #s4-firma_busqueda
+{
+	float: none !important;
+	background-image: none !important;
+	height: auto !important;
+}
+
+.nightandday #s4-buscar
+{
+	display: none !important;
+}
+
+
+.nightandday #pie
+{
+	display:block!important;
+	clear:none !important;
+	text-align: center;
+	border-top: 1px solid #DEDDE0;
+	position: relative;
+	bottom: -170px;
+
+}
+.nightandday #pie_b{
+	display:none !important;
+	clear:both !important;
+}
+
+.nightandday #pie_1{
+	display:none !important;
+	clear:both !important;
+}
+
+.nightandday #imagenpie{
+	display:none !important;
+	clear:both !important;
+}
+
+.nightandday #comentpie{
+	display:none !important;
+	clear:both !important;
+}
+
+.nightandday #pie_2{
+	display:none !important;
+	clear:both !important;
+}
+
+.imprimepie
+{
+	display:block !important;
+	clear:none !important;
+
+}
+
+
+ 
+
+.menu_principal_fuera
+{
+	display: none !important;
+}
+
+.main-content 
+{	
+	margin: 0 !important;
+	padding-left: 0 !important;
+}
+
+.ruta_de_navegacion 
+{
+	display: none !important;
+}
+
+.herramientas_del_usuario 
+{
+	display: none !important;
+}
+
+.B  
+{
+	width: auto !important;
+}
+
+.K
+{
+	display: none !important;
+}
+
+.renglon .texto_nota
+{
+	width: auto !important;
+	text-align:justify;	
+	page-break-after: auto !important;
+}
+
+.caja
+{
+	display: none !important; 
+}
+
+
+#zz1_TopNavigationMenuV4
+{
+    	display: none !important; 
+}
+
+#imprimeimagen
+{
+	display: block !important;
+	width:976px;
+	height:80px;
+	position:relative !important;
+	left:-350px;
+	
+}
+
+#prueba{
+	background-position:left;
+	padding-left:1px;
+	background-image:url('../Images/pdf.gif');
+	background-position:left;
+	background-repeat:no-repeat;
+}
+
+
+
+a[href^="http:"]:after
+{	
+	content: "";	
+}
+
+a[href^="https:"]:after
+{	
+	content: "";	
+}
+
+a[href$='.pdf']
+{
+	padding-right: 0;
+	background-image: none;
+}
+
+.EspaciadoCaja 
+{
+	display: none !important;
+}
+
+
+
+
+/*---------------------------------------------------------------------------------------------*/

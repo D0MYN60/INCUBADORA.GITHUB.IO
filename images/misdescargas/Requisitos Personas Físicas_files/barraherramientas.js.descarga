@@ -1,0 +1,51 @@
+	
+	//Javascript
+	
+	function chica (){
+		document.getElementById('nota_interna').className = 'nota_chica';
+	}
+	function media (){
+		document.getElementById('nota_interna').className = 'nota_media';
+		
+	}
+	function normal (){
+	    document.getElementById('nota_interna').className = 'nota_media';
+		
+	}
+
+	function mayor (){
+		document.getElementById('nota_interna').className = 'nota_grande';
+	}
+
+	//Inicio de Sesión
+
+   function SiFocus(element) {
+     if (element.value == element.defaultValue) {
+       element.value = '';
+     }
+   }
+   function SiBlur(element) {
+     if (element.value == '') {
+       element.value = element.defaultValue;
+     }
+   }
+   
+// Ligas externas
+	function initLinks() {
+		for (i in document.links) {
+			link = document.links[i];
+			if (link.rel && link.rel.indexOf('external')!=-1) {
+				link.onclick = onExternalLinkActivate;
+				link.onkeypress = onExternalLinkActivate;
+			}
+		}
+	}
+
+	function onExternalLinkActivate() {
+		window.open(this.href);
+		return false;
+	}
+
+	window.onload = initLinks;
+	
+	

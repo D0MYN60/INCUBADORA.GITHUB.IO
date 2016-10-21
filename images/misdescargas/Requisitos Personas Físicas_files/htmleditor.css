@@ -1,0 +1,431 @@
+﻿/*********************************************************************************/
+/* ESTILOS DE REVISION***********************************************************/
+/*******************************************************************************/
+H1.my-rteElement-T {
+	-ms-name: "Título";
+}
+.my-rteElement-T {
+	border-left-style: solid !important;
+	border-left-width: 2px !important;
+	padding-left: .3em !important;
+	border-width: 2px !important;
+	border-color: #e4e3e3 !important;
+	text-transform: uppercase !important;
+	font-weight: bold !important;
+	color: #019587 !important;
+	margin-bottom: .5em !important;
+	font-size: 1em !important;
+}
+H1.my-rteElement-S {
+	-ms-name: "Subtítulo";
+}
+.my-rteElement-S {
+	font-size: 1.15em !important;
+	color: gray !important;
+	font-weight: bold !important;
+	text-transform: none !important;
+}
+DIV.my-rteElement-Advertencia {
+	-ms-name: "Caja interna";
+	background-color: #F4F5F9;
+	border: 1px solid #B7B8B9;
+	color: #353738;
+	float: left;
+	padding: 10px;
+	width: 97%;
+}
+/*********************************************************************************/
+/* ESTILOS **********************************************************************/
+/*******************************************************************************/
+.ms-rteStyle-Bold {
+	-ms-name: "Negritas";
+	font-weight: bold;
+}
+.my-rteStyle-Bold {
+	-ms-name: "Negritas";
+	font-weight: bold;
+}
+.my-rteStyle-Linea {
+	-ms-name: "Linea aviso";
+	font-weight: bold;
+	background: url(/style%20Library/Images/st_error_1.gif);
+	background-repeat: no-repeat;
+	background-position: left,top;
+	border-bottom: 1px solid #999999;
+	border-style: none none solid;
+	border-width: 0 0 1px;
+	font-weight: bold;
+	padding-left: 1.8em;
+	padding-bottom: 2px;
+	border-bottom-width: 100%;
+}
+.my-rteStyle-img {
+	-ms-name: "Imagen";
+	background: transparent url(/style%20Library/Images/st_iconoimg.jpg) center left no-repeat;
+	padding-left: 1.7em;
+}
+.my-rteStyle-peso {
+	-ms-name: "Peso archivo";
+	font-size: 10pt;
+	text-transform:uppercase;
+}
+DIV.my-rteElement-Advertencia span.my-rteStyle-Linea {
+	border-bottom: 1px solid #999999;
+	border-style: none none solid;
+	border-width: 0 0 1px;
+	width: 96%;
+	display: inline-block;
+}
+/*********************************************************************************/
+/* TABLAS ***********************************************************************/
+/*******************************************************************************/
+.my-rteTable-default, .my-rteTableHeaderFirstCol-default, 
+.my-rteTableHeaderLastCol-default, .my-rteTableHeaderOddCol-default, 
+.my-rteTableHeaderEvenCol-default, .my-rteTableFirstCol-default, 
+.my-rteTableLastCol-default, .my-rteTableOddCol-default, 
+.my-rteTableEvenCol-default, .my-rteTableFooterFirstCol-default, 
+.my-rteTableFooterLastCol-default, .my-rteTableFooterOddCol-default, 
+.my-rteTableFooterEvenCol-default, TD.my-rteTable-default, 
+TH.my-rteTable-default, .my-rtetablecells {
+	-ms-name: "Estilo de tabla predeterminado";
+	border: solid 1px #c4c4c4;
+	padding: 2px;
+	vertical-align: top;
+}
+/* Estilo de tabla 1 - Claro */
+/* Estilo de tabla 1 - Claro */
+.my-rteTable-0 {
+	-ms-name: "Estilo de tabla 1 - Claro";
+	border-width: 0px;
+	border-style: none;
+	border-collapse: collapse;
+}
+.my-rteTable-1 {
+	-ms-name: "Estilo de tabla 2 - Con bandas claras";
+	/*text-align: left;*/
+	line-height: 1.5;
+	vertical-align: top;
+	color: #585050;
+	font-size: 1em;
+}
+
+.my-rteTable-1 th.my-rteTableHeaderRow-1, 
+.my-rteTable-1 tr.my-rteTableFooterRow-1, 
+.my-rteTable-1 th.my-rteTableHeaderFirstCol-1, 
+.my-rteTable-1 th.my-rteTableFooterFirstCol-1,
+.my-rteTable-1 th.my-rteTableHeaderOddCol-1,
+.my-rteTable-1 td.my-rteTableFooterOddCol-1,
+.my-rteTable-1 th.my-rteTableHeaderEvenCol-1,
+.my-rteTable-1 td.my-rteTableFooterEvenCol-1, 
+.my-rteTable-1 th.my-rteTableHeaderLastCol-1, 
+.my-rteTable-1 th.my-rteTableFooterLastCol-1 {
+	background-color: #FFF;
+	border-top: 1px #B7B8B9 solid;
+	border-bottom: 1px #B7B8B9 solid;
+}
+
+.my-rteTable-1 th{
+	/*guillermo.hernandez*/
+	text-align:left !important;
+}
+
+.my-rteTable-1 tr.my-rteTableOddRow-1 {
+	background-color: #F4F5F9;
+}
+.my-rteTable-1 tr.my-rteTableEvenRow-1 {
+	background-color: #fff;
+}
+.my-rteTable-1 th.my-rteTableFirstCol-1, .my-rteTable-1 td.my-rteTableLastCol-1 {
+	font-weight: normal;
+}
+.my-rteTable-1 td.my-rteTableOddCol-1, .my-rteTable-1 td.my-rteTableEvenCol-1 {
+}
+/* Estilo de tabla 3 - Claro */
+/* Estilo de tabla 3 - Claro */
+.my-rteTable-6 {
+	-ms-name: "Estilo de tabla 3";
+	text-align: left;
+	line-height: 2;
+	vertical-align: top;
+	color: #000000;
+	font-size: 1em;
+}
+.my-rteTable-6 th.my-rteTableHeaderRow-6, 
+.my-rteTable-6 tr.my-rteTableFooterRow-6,
+.my-rteTable-6 th.my-rteTableHeaderFirstCol-6, 
+.my-rteTable-6 th.my-rteTableFooterFirstCol-6, 
+.my-rteTable-6 th.my-rteTableHeaderOddCol-6,
+.my-rteTable-6 td.my-rteTableFooterOddCol-6,
+.my-rteTable-6 th.my-rteTableHeaderEvenCol-6, 
+.my-rteTable-6 td.my-rteTableFooterEvenCol-6,
+.my-rteTable-6 th.my-rteTableHeaderLastCol-6, 
+.my-rteTable-6 td.my-rteTableFooterLastCol-6 {
+	color: #ffffff;
+	background-color: #336699;
+	border-top: 2px #274e75 solid;
+	border-bottom: 2px #274e75 solid;
+}
+.my-rteTable-6 tr.my-rteTableOddRow-6 {
+	background-color: #4B7DB5;
+}
+.my-rteTable-6 tr.my-rteTableEvenRow-6 {
+	background-color: #fff;
+}
+.my-rteTable-6 th.my-rteTableFirstCol-6 {
+	font-weight: normal;
+}
+.my-rteTable-6 td.my-rteTableLastCol-6 {
+	font-weight: normal;
+}
+.my-rteTable-6 td.my-rteTableOddCol-6, 
+.my-rteTable-6 td.my-rteTableEvenCol-6 {
+}
+.my-rteTableGrid td, .my-rteTableGrid th {
+	border: 1px dotted black;
+}
+/* Tabla Registros */
+table.my-rteTable-Registro {
+	-ms-name: "Estilo de tabla 4 - Registro";
+}
+table.my-rteTable-Registro tr.my-rteTableHeaderRow-Registro,
+table.my-rteTable-Registro tr.my-rteTableFooterRow-Registro {
+	background: none repeat scroll 0 0 #336699;
+	color: #FFFFFF;
+	font-weight: normal;
+	padding: 15px 10px;
+}
+table.my-rteTable-Registro {
+	font: 85% "Arial", "Verdana", "sans-serif";
+	padding: 0;
+	margin: .3em 0 0 0;
+	border-collapse: collapse;
+	color: #333;
+	background: #F3F5F7;
+	width: 100%;
+}
+table.my-rteTable-Registro a {
+	color: #D17100;
+	text-decoration: none;
+	border-bottom: 1px solid #C6C8CB;
+}
+table.my-rteTable-Registro a:visited {
+	color: #777;
+}
+table.my-rteTable-Registro a:hover {
+	color: #000;
+}
+table.my-rteTable-Registro caption {
+	text-align: left;
+	padding-bottom: 10px;
+	font: 120% "Arial", "Verdana", "sans-serif";
+	font-weight: bold;
+	color: #666666;
+}
+table.my-rteTable-Registro thead th {
+	background: #666666;
+	padding: 15px 10px;
+	color: #fff;
+	text-align: left;
+	font-weight: normal;
+}
+table.my-rteTable-Registro tbody, table thead {
+	border-left: 1px solid #EAECEE;
+	border-right: 1px solid #EAECEE;
+}
+table.my-rteTable-Registro tbody {
+	border-bottom: 1px solid #EAECEE;
+}
+table.my-rteTable-Registro tbody td, table tbody th {
+	padding: 10px;
+	text-align: left;
+	border: solid 1px #FFFFFF;
+}
+table.my-rteTable-Registro tbody tr {
+	background: #F3F5F7;
+}
+table.my-rteTable-Registro tfoot td, table tfoot th, table tfoot tr {
+	text-align: left;
+	font: 120% "Arial", "Verdana", "sans-serif";
+	text-transform: uppercase;
+	background: #fff;
+	padding: 10px;
+}
+table.my-rteTable-Registro tbody tr.my-rteTableOddRow-Registro {
+	background: #F0F2F4;
+}
+table.my-rteTable-Registro tr.my-rteTableOddRow-Registro:hover {
+	background: #EAECEE;
+}
+table.my-rteTable-Registro tr.my-rteTableEvenRow-Registro:hover {
+	background: #EAECEE;
+}
+table.my-rteTable-Registro th.my-rteTableHeaderFirstCol-Registro, 
+table.my-rteTable-Registro th.my-rteTableFooterFirstCol-Registro {
+	font-weight: bold;
+}
+/* Tabla Calendario */
+table.my-rteTable-Mes {
+	-ms-name: "Estilo de tabla 5 - Mes";
+}
+table.my-rteTable-Mes tr.my-rteTableHeaderRow-Mes {
+	background: none repeat scroll 0 0 #336699;
+	color: #FFFFFF;
+	font-weight: normal;
+	padding: 15px 10px;
+	text-align: left;
+	text-align: left;
+}
+table.my-rteTable-Mes {
+	font: 85% "Arial", "Verdana", "sans-serif";
+	padding: 0;
+	margin: .3em 0 0 0;
+	border-collapse: collapse;
+	color: #333;
+	background: #F3F5F7;
+	width: 100%;
+}
+table.my-rteTable-Mes .my-rteTableOddCol-Mes.a {
+	color: #D17100;
+	text-decoration: none;
+	border-bottom: 1px solid #C6C8CB;
+}
+table.my-rteTable-Mes .my-rteTableOddCol-Mes.a:hover {
+	color: red;
+	text-decoration: none !important;
+}
+table.my-rteTable-Mes caption {
+	text-align: left;
+	padding-bottom: 10px;
+	font: 120% "Arial", "Verdana", "sans-serif";
+	font-weight: bold;
+	color: #666666;
+}
+table.my-rteTable-Mes thead th {
+	background: #336699;
+	padding: 15px 10px;
+	color: #fff;
+	text-align: left;
+	font-weight: normal;
+}
+table.my-rteTable-Mes tbody, table thead {
+	border-left: 1px solid #EAECEE;
+	border-right: 1px solid #EAECEE;
+}
+table.my-rteTable-Mes tbody {
+	border-bottom: 1px solid #EAECEE;
+}
+table.my-rteTable-Mes tbody td, table tbody th {
+	padding: 10px;
+	text-align: left;
+}
+table.my-rteTable-Mes tbody tr {
+	background: #F3F5F7;
+}
+table.my-rteTable-Mes tfoot td, table tfoot th, table tfoot tr {
+	text-align: left;
+	font: 120% "Arial", "Verdana", "sans-serif";
+	text-transform: uppercase;
+	background: #fff;
+	padding: 10px;
+}
+table.my-rteTable-Mes tbody tr.my-rteTableOddRow-Mes {
+	background: #F0F2F4;
+}
+table.my-rteTable-Mes td.my-rteTableEvenCol-Mes, 
+table.my-rteTable-Mes td.my-rteTableOddCol-Mes, 
+table.my-rteTable-Mes th.my-rteTableFooterFirstCol-Mes, 
+table.my-rteTable-Mes th.my-rteTableFirstCol-Mes, 
+table.my-rteTable-Mes td.my-rteTableLastCol-Mes {
+	background: none repeat scroll 0 0 #F4F5FF;
+	border-top: 1px solid #FFFFFF;
+	color: #585050;
+	padding: 0.5em;
+	text-align: center;
+	font-weight: normal;
+}
+table.my-rteTable-Mes tr.my-rteTableFooterRow-Mes {
+	background: none repeat scroll 0 0 #F4F5FF;
+	border-top: 1px solid #FFFFFF;
+	color: #585050;
+	padding: 0.5em;
+	text-align: center;
+	font-weight: normal;
+}
+/* Tabla Normal*/
+table.my-rteTable-Normal {
+	-ms-name: "Estilo de tabla 6 - Normal";
+}
+table.my-rteTable-Normal {
+	font: 85% "Arial", "Verdana", "sans-serif";
+	padding: 0;
+	margin: .3em 0 0 0;
+	border-collapse: collapse;
+	color: #333;
+	background: #F3F5F7;
+	width: 100%;
+}
+table.my-rteTable-Normal .my-rteTableOddCol-Normal.a {
+	color: #D17100;
+	text-decoration: none;
+	border-bottom: 1px solid #C6C8CB;
+}
+table.my-rteTable-Normal .my-rteTableOddCol-Normal.a:hover {
+	color: red;
+	text-decoration: none !important;
+}
+table.my-rteTable-Normal caption {
+	text-align: left;
+	padding-bottom: 10px;
+	font: 120% "Arial", "Verdana", "sans-serif";
+	font-weight: bold;
+	color: #666666;
+}
+table.my-rteTable-Normal thead th {
+	background: #666666;
+	padding: 15px 10px;
+	color: #fff;
+	text-align: left;
+	font-weight: normal;
+}
+table.my-rteTable-Normal tbody, table thead {
+	border-left: 1px solid #EAECEE;
+	border-right: 1px solid #EAECEE;
+}
+table.my-rteTable-Normal tbody {
+	border-bottom: 1px solid #EAECEE;
+}
+table.my-rteTable-Normal tbody td, table tbody th {
+	padding: 10px;
+	text-align: left;
+}
+table.my-rteTable-Normal tbody tr {
+	background: #F3F5F7;
+}
+table.my-rteTable-Normal tfoot td, table tfoot th, table tfoot tr {
+	text-align: left;
+	font: 120% "Arial", "Verdana", "sans-serif";
+	text-transform: uppercase;
+	background: #fff;
+	padding: 10px;
+}
+table.my-rteTable-Normal tbody tr.my-rteTableOddRow-Normal {
+	background: #F0F2F4;
+}
+table.my-rteTable-Normal td.my-rteTableEvenCol-Normal, 
+table.my-rteTable-Normal td.my-rteTableOddCol-Normal, 
+table.my-rteTable-Normal th.my-rteTableFooterFirstCol-Normal,
+table.my-rteTable-Normal th.my-rteTableFirstCol-Normal,
+table.my-rteTable-Normal td.my-rteTableLastCol-Normal,
+table.my-rteTable-Normal tr.my-rteTableFooterRow-Normal,
+table.my-rteTable-Normal tr.my-rteTableHeaderRow-Normal, 
+table.my-rteTable-Normal th.my-rteTableHeaderFirstCol-Normal,
+table.my-rteTable-Normal th.my-rteTableHeaderOddCol-Normal,
+table.my-rteTable-Normal th.my-rteTableHeaderEvenCol-Normal {
+	background: none repeat scroll 0 0 #F4F5FF;
+	border-top: 1px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+	color: #585050;
+	padding: 0.5em;
+	text-align: center;
+	font-weight: normal;
+}

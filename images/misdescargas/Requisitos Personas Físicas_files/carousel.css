@@ -1,0 +1,102 @@
+﻿#banner-fade,
+#banner-slide{
+	margin-bottom: 18px;
+}
+
+ol.bjqs-markers li a{
+	padding: 2px;
+	color: #CCCCCC;
+	width: 15px;
+	height: 12px;
+	text-decoration: none;
+	font-size: 1px;
+	background:url('images/darkCicle.png') no-repeat;
+}
+
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{
+	background:url('images/blackCicle.png') no-repeat;
+}
+
+/* Blanco background: rgba(255,255,255,0.5);
+p.bjqs-caption{
+	background: url('images/square.png') no-repeat;
+	background: rgba(255,255,255,0.5); 
+	background: #C2002F;
+	opacity: 0.8;
+	color:#666666;
+	color: white;
+	font-size:larger;
+}
+
+p.bjqs-caption a {
+	color: black;
+	text-decoration: none;
+}
+
+p.bjqs-caption a:hover {
+	color: white;
+	font-weight:bold;
+	text-decoration: none;
+}
+
+p.bjqs-caption a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+
+.text {
+	color:white;
+	font-weight:bold;
+}*/
+
+ul.bjqs{position:relative; list-style:none;padding:0;margin:0;overflow:hidden; display:none;}
+li.bjqs-slide{position:absolute; display:none;}
+ul.bjqs-controls{list-style:none;margin:0;padding:0;z-index:9999;}
+ul.bjqs-controls.v-centered li a{position:absolute;}
+ul.bjqs-controls.v-centered li.bjqs-next a{right:0;}
+ul.bjqs-controls.v-centered li.bjqs-prev a{left:0;}
+ol.bjqs-markers{list-style: none; padding: 0; margin: 0; width:100%;}
+ol.bjqs-markers.h-centered{text-align: center;}
+ol.bjqs-markers li{display:inline;}
+ol.bjqs-markers li a{display:inline-block;}
+p.bjqs-caption{ font-size:12px; display:block;width:220px;margin:0 0 10px 10px;padding:2%;position:absolute;bottom:0; height:60px;}
+
+#verMas {
+	padding-right: 5px;
+	text-align: right;
+	color:#550000;
+}
+#verMas a:hover {
+	color:#CC3300;
+}
+#verMas a:visited {
+	color:#550000;
+}
+
+
+
+
+#carrusel_2 {
+	border:0px;
+}
+
+#carrusel_2 ul.images {
+  margin:0 4px 0 4px;
+  padding: 0;
+  white-space: nowrap;
+  width: 1016px;
+  height:auto;
+  overflow-x:auto;
+  overflow-y:hidden;
+  background-color: #ddd;
+}
+#carrusel_2 ul.images li {
+  display: inline;
+  width: 150px;
+  height:200px;
+  padding-right:10px;
+}
+
+

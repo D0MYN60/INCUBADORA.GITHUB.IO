@@ -1,0 +1,121 @@
+﻿function dobleestilo() {
+
+    for (i = 0; i < document.getElementsByTagName("div").length; i++) {
+        if (document.getElementsByTagName("div").item(i).className == "Combinado_Titulo"
+                    || document.getElementsByTagName("div").item(i).className == "Combinado_Titulo_Con_Marco"
+                    || document.getElementsByTagName("div").item(i).className == "Combinado_Titulo_ConMarco_Separado"
+                    || document.getElementsByTagName("div").item(i).className == "SIPEstandarTitulo"
+                //    || document.getElementsByTagName("div").item(i).className == "Tipo_Menu"
+                    || document.getElementsByTagName("div").item(i).className == "Combinado_Titulo_Con_Fondo"
+                    || document.getElementsByTagName("div").item(i).className == "Combinado_Titulo_Con_Pleca") {
+            var dado = document.getElementsByTagName("div").item(i).innerHTML;
+            var temp = prepStr(dado.toString());
+            var arreglo = new Array();
+            arreglo = temp.split(" ");
+            var segundo = "";
+            for (j = 1; j < arreglo.length; j++) {
+                segundo = segundo + " " + arreglo[j];
+            }
+            document.getElementsByTagName("div").item(i).innerHTML = arreglo[0] + "<span class='titulo_seccion_b'>" + segundo + "</span>";
+
+        }
+    }
+
+}
+
+function contorno() {
+    for (i = 0; i < document.getElementsByTagName("div").length; i++) {
+        if (document.getElementsByTagName("div").item(i).className == "Combinado_Titulo_Con_Marco") {
+            document.getElementsByTagName("div").item(i).parentNode.className = "MarcoTituloCombinado";
+        }
+        else if (document.getElementsByTagName("div").item(i).className == "Combinado_Titulo_ConMarco_Separado") {
+            document.getElementsByTagName("div").item(i).parentNode.className = "MarcoTituloCombinadoSeparado";
+        }
+        else if (document.getElementsByTagName("div").item(i).className == "Combinado_Titulo_Con_Fondo") {
+            document.getElementsByTagName("div").item(i).parentNode.className = "FondoTituloCombinadoSeparado";
+        }
+        else if (document.getElementsByTagName("div").item(i).className == "Titulo_SIP_Tipo_Menu") {
+            document.getElementsByTagName("div").item(i).parentNode.className = "MarcoTipoMenu";
+        }
+        else if (document.getElementsByTagName("div").item(i).className == "Titulo_SIP_Tipo_Menu_Separado") {
+            document.getElementsByTagName("div").item(i).parentNode.className = "MarcoTipoMenuSeparado";
+        }
+
+    }
+}
+
+function prepStr(str) {
+    str = str.toLowerCase();
+
+    return str;
+}
+
+function dobleestilomenu() {
+
+    for (i = 0; i < document.getElementsByTagName("span").length; i++) {
+        if (document.getElementsByTagName("span").item(i).className == "menu-item-text") {
+            var dado = document.getElementsByTagName("span").item(i).innerHTML;
+            var strLen = dado.length;
+//            var postString = prepStr(dado.toString().substring(1, strLen));
+			var postString = setPalabrasReservadas(prepStr(dado.toString().substring(1, strLen))); 
+            var temp = prepStr(dado.toString().substring(0, 1));
+            var arreglo = new Array();
+            arreglo = temp.split(" ");
+            document.getElementsByTagName("span").item(i).innerHTML = "<span class='menu-item-text-l'>" + arreglo[0] + "</span><span class='menu-item-text2'>" + postString + "</span>";
+
+        }
+    }
+
+}
+
+function dobleestilomenu2() {
+
+    for (i = 0; i < document.getElementsByTagName("span").length; i++) {
+          if (document.getElementsByTagName("span").item(i).className == "" && document.getElementsByTagName("span").item(i).parentNode.parentNode.className=="Tipo_Menu") {
+            var dado = document.getElementsByTagName("span").item(i).innerHTML;
+            var strLen = dado.length;
+//            var postString = prepStr(dado.toString().substring(1, strLen));
+			var postString = setPalabrasReservadas(prepStr(dado.toString().substring(1, strLen))); 
+            var temp = prepStr(dado.toString().substring(0, 1));
+            var arreglo = new Array();
+            arreglo = temp.split(" ");
+            document.getElementsByTagName("span").item(i).innerHTML = "<span class='menu-item-text-l'>" + arreglo[0] + "</span><span class='menu-item-text2'>" + postString + "</span>";
+
+        }
+    }
+
+}
+
+
+function regresa() {
+    var flecha = document.getElementById("regresa");
+    flecha.onclick = function () {
+        history.back();
+        return false;
+    }
+}
+
+function setPalabrasReservadas(str){
+str= str.replace("Sat","SAT");
+str= str.replace("iec","IEC");
+str= str.replace("CIEC","CIEC");
+str= str.replace("Ciec","CIEC");
+str= str.replace("rfc","RFC");
+str= str.replace("sat","SAT");
+str= str.replace("ciec","CIEC");
+str= str.replace("curp","CURP");
+str= str.replace("rmf","RMF");
+str= str.replace("fiel","Fiel");
+str= str.replace("FIEL","Fiel");
+str= str.replace("cIEC","CIEC");
+
+return str;
+
+}
+
+
+
+dobleestilo();
+contorno();
+dobleestilomenu(); 
+dobleestilomenu2();

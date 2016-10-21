@@ -1,0 +1,188 @@
+﻿#scrollbar-demo{
+	width: 59em;
+	height: 16em;
+	text-align:justify;
+	overflow:auto;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
+	border-left: 1px solid silver;
+	background-color: #fff;
+	margin-right: 0 !important;
+}
+
+/*Eliminar borde y cambiar color de borde */
+
+.scrollBar {
+	border:none !important;	
+}
+
+
+.B #scrollbar-demo{
+	width: 44em;
+}
+.C #scrollbar-demo{
+	width: 39.5em;
+}
+.D #scrollbar-demo{
+	width: 38em;
+}
+.E #scrollbar-demo{
+	width: 35em;
+}
+.F #scrollbar-demo{
+	width: 29em;
+}
+.P #scrollbar-demo{
+	width: 47em;
+}
+
+.scrollBar .bar{
+	width:32px;
+	height:20px;/*32px cambio de alto para las nuevas imagenes */
+}
+
+.scrollBar .button{
+	width:20px;/*32px cambio de imagen */
+	height:20px;/*32px cambio de imagen */
+	outline:none;
+	background-position:top center;
+	background-repeat:no-repeat;
+	cursor:pointer;
+}
+
+.scrollBar .button.topButton{
+	background-image:url('arrow-up.gif');
+}
+
+.scrollBar .button.bottomButton{
+	background-image:url('arrow-down.gif');
+}
+
+.scrollBar .button.leftButton{
+	background-image:url('arrow-left2.jpg');/*cambio por arrow-left.gif*/
+	background-position:0px 0px;/*agrego regla*/
+}
+
+.scrollBar .button.leftButton:hover{
+	background-position: 0px -20px;/*agrego regla*/
+}
+
+.scrollBar .button.rightButton{
+	background-image:url('arrow-right2.jpg');/*cambio por arrow-right.gif*/
+	background-position:0px 0px;/*agrego regla*/
+}
+
+.scrollBar .button.rightButton:hover{
+	background-position:0px -20px;/*agrego regla*/
+}
+
+.scrollBar .button.active{
+	background-position:bottom center ;
+}
+
+.scrollBar .scrollable{
+	cursor:pointer;
+	background-image:url('stripe.gif');
+	background-repeat:repeat;
+	width:904px !important;/*agregar regla*/
+}
+
+.scrollBar .knob{
+	height:20px;/*32px cambio de imagen*/
+}
+
+.scrollBar .knob.verticalKnob{
+	cursor:n-resize;
+}
+
+.scrollBar .knob.horizontalKnob{
+	cursor:w-resize;
+}
+
+.scrollBar .knobHorizontalTip{
+	width:8px;/*cambio 12 px*/
+	position:absolute;
+	background-position:0px 0px;/*cambio por left center*/
+	background-repeat:no-repeat;
+}
+
+.scrollBar .active .knobHorizontalTip{
+	background-position:right center;
+}
+
+.scrollBar .leftTip{
+	left:0;
+	background-image:url('knob-left2.jpg');/*cambio por knob-left.gif*/
+}
+
+.scrollBar:hover .leftTip{
+	background-position:0px -20px;/*agregar regla*/
+}
+
+.scrollBar .rightTip{
+	right:0;
+	background-image:url('knob-right2.jpg');/*cambio por knob-right.gif*/
+}
+
+.scrollBar:hover .rightTip{
+	background-position:0px -20px;/*agregar regla*/
+}
+
+.scrollBar  .knobHorizontalFill{
+	background-position:0px 0px; /*cambio top center*/
+	background-repeat:repeat-x;
+	background-image:url('horizontal-knob2.jpg');/*cambio .gif */
+	margin:0 8px;/*0 12px*/
+}
+
+
+.scrollBar:hover .knobHorizontalFill{/*agrego regla para mover scrollbar*/
+	background-position: 0px -20px;
+	background-repeat:repeat-x;
+	background-image:url('horizontal-knob2.jpg');/*para que se vea la imagen en hover*/
+}
+
+.scrollBar .active .knobHorizontalFill{
+	background-position:bottom center;
+}
+
+.scrollBar .knobVerticalTip{
+	height:12px;
+	background-position:top center;
+	background-repeat:no-repeat;
+}
+
+.scrollBar .active .knobVerticalTip{
+	background-position:bottom center;
+}
+
+.scrollBar .knobVerticalFill{
+	background-position:left center;
+	background-repeat:repeat-y;
+	background-image:url('vertical-knob.gif');
+	position:absolute;
+	bottom:12px;
+	top:12px;
+}
+
+.scrollBar .active .knobVerticalFill{
+	background-position:right center;
+}
+
+.scrollBar .topTip{
+	background-image:url('knob-top.gif');
+}
+
+.scrollBar .bottomTip{
+	position:absolute;
+	bottom:0;
+	background-image:url('knob-bottom.gif');
+}
+
+.scrollBar .knob.active{
+	border:none;
+}
+
+.scrollBar .corner{
+	background: url('corner.gif') no-repeat center center;
+}
